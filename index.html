@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pour toi 🌹</title>
+  <title>Pour toi 🌸</title>
   <style>
     body {
       margin: 0;
@@ -30,37 +30,42 @@
 
     h1 {
       font-size: 2em;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: .15em solid orange;
-      width: 0;
-      animation:
-        typing 5s steps(40, end) forwards,
-        blink-caret 0.75s step-end infinite;
+      margin: 0 30px 10px 30px;
+      max-width: 90%;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+    p {
+      font-size: 1.2em;
+      max-width: 85%;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 1.6s;
     }
 
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: orange }
+    .code-line {
+      font-family: monospace;
+      font-size: 1.1em;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-top: 25px;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 3.2s;
     }
 
     .signature {
-      margin-top: 40px;
+      margin-top: 35px;
       display: flex;
       align-items: center;
       gap: 15px;
-      animation: fadeIn 4s ease-in forwards;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 4.8s;
     }
 
     .signature img {
@@ -68,24 +73,29 @@
       height: 60px;
       border-radius: 50%;
       border: 2px solid white;
+      box-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
 
     .signature span {
-      font-size: 1.2em;
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      font-size: 1.4em;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ffcc00, #ff3366);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(255,255,255,0.4);
     }
 
-    /* Coeurs flottants */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Coeurs flottants (facultatif, doux) */
     .heart {
       position: absolute;
       color: #ff6b81;
       animation: float 10s linear infinite;
-      opacity: 0.8;
-      font-size: 20px;
+      opacity: 0.7;
+      font-size: 18px;
     }
 
     @keyframes float {
@@ -105,25 +115,28 @@
 </head>
 <body>
 
-  <h1>Le code, comme l'amour demande de la patience et de la logique.</h1>
+  <h1>Il y a des choses que je ne dis pas souvent...</h1>
+  <p>Mais parfois, une ligne de code en dit bien plus que mille mots.</p>
+  <div class="code-line">if (présenceDeToi) { inspiration++; }</div>
 
   <div class="signature">
-    <img src="https://i.pravatar.cc/150?img=3" alt="Avatar de Maruis" />
-    <span>Maruis – Développeur de tes émotions 💻❤️</span>
+    <img src="Images/img.webp" alt="Avatar de Maruis" />
+    <span>Maruis – Celui qui pense aussi en balises et émotions 💻</span>
   </div>
 
-  <!-- Cœurs animés -->
+  <!-- Optionnel : coeurs légers -->
   <script>
     const hearts = ['💖', '❤️', '💕', '💘', '💓'];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 20; i++) {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDelay = Math.random() * 10 + 's';
-      heart.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.fontSize = (Math.random() * 8 + 12) + 'px';
       heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
       document.body.appendChild(heart);
     }
   </script>
+
 </body>
 </html>
